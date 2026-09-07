@@ -2,6 +2,7 @@ filters:
   and:
     - file.inFolder("Tasks")
     - file.ext == "md"
+    - '!file.path.contains("/attachments/")'
 views:
   - type: kanban
     name: Tasks
