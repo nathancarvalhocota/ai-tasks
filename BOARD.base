@@ -1,11 +1,11 @@
 filters:
   and:
-    - file.inFolder("Tasks")
+    - file.inFolder("tasks")
     - file.ext == "md"
     - '!file.path.contains("/attachments/")'
 views:
   - type: kanban
-    name: Tasks
+    name: BOARD
     groupBy:
       property: status
       direction: DESC

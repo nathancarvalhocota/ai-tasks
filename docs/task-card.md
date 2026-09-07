@@ -1,18 +1,18 @@
 # Especificação do card de tarefa
 
-Este documento é a fonte de verdade para criar e manter cards exibidos em `Tasks.base`.
+Este documento é a fonte de verdade para criar e manter cards exibidos em `BOARD.base`.
 
 ## Armazenamento
 
-Cada card é uma pasta dentro de `Tasks/`. A nota principal tem o mesmo nome da pasta:
+Cada card é uma pasta dentro de `tasks/`. A nota principal tem o mesmo nome da pasta:
 
 ```text
-Tasks/<título-do-card>/
+tasks/<título-do-card>/
 ├── <título-do-card>.md
 └── attachments/
 ```
 
-Crie `attachments/` somente quando houver um anexo. O filtro `file.inFolder("Tasks")` do board inclui as subpastas dos cards.
+Crie `attachments/` somente quando houver um anexo. O filtro `file.inFolder("tasks")` do board inclui as subpastas dos cards e exclui os próprios anexos dos resultados.
 
 Use um título curto e específico. Em nomes de pasta e arquivo, remova caracteres inválidos no Windows. Antes de criar, procure títulos semelhantes para evitar duplicidade e confirme que o destino não existe.
 
@@ -75,7 +75,7 @@ tags: []
 
 ## Localização de cards existentes
 
-Antes de alterar, mover ou anexar arquivos, pesquise todas as notas Markdown sob `Tasks/` e resolva a referência nesta ordem:
+Antes de alterar, mover ou anexar arquivos, pesquise todas as notas Markdown sob `tasks/` e resolva a referência nesta ordem:
 
 1. ID exato ou prefixo único do ID.
 2. Título exato da pasta ou da nota.
@@ -92,7 +92,7 @@ Quando houver mais de um candidato plausível, apresente uma lista curta com ID,
 2. Gere um `id` único no formato definido neste contrato.
 3. Crie a pasta do card e a nota com o mesmo nome.
 4. Preencha o formato completo e defina um estado aceito.
-5. Confirme que o Markdown está sob `Tasks/` e satisfaz o filtro do board.
+5. Confirme que o Markdown está sob `tasks/` e satisfaz o filtro do board.
 
 ### Editar ou mover
 

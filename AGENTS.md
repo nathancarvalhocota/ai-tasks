@@ -5,7 +5,7 @@ AI Tasks é um vault Obsidian local-first. Markdown e anexos são a fonte de ver
 ## Antes de operar tarefas
 
 - Quando o usuário invocar `ai-tasks`, localize o vault conforme a própria skill e cumpra o pedido em linguagem natural.
-- Consulte `Tasks.base` para confirmar os estados aceitos e o diretório filtrado pelo board.
+- Consulte `BOARD.base` para confirmar os estados aceitos e o diretório filtrado pelo board.
 - Trate [`docs/task-card.md`](docs/task-card.md) como a fonte de verdade do formato e do fluxo dos cards.
 
 ## Limites estruturais

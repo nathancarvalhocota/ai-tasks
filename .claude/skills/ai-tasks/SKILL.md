@@ -9,7 +9,7 @@ disable-model-invocation: true
 
 ## Localize o vault
 
-Considere válido um diretório que contenha `Tasks.base`, `Tasks/` e `docs/task-card.md`.
+Considere válido um diretório que contenha `BOARD.base`, `tasks/` e `docs/task-card.md`.
 
 1. Use o diretório atual ou um de seus ancestrais quando ele for um vault válido.
 2. Caso contrário, leia `~/.ai-tasks/config.json` e use o caminho absoluto da propriedade `vault`.
@@ -20,6 +20,6 @@ Quando a skill for executada dentro de um vault válido diferente do configurado
 
 ## Execute o pedido
 
-Leia integralmente `<vault>/docs/task-card.md`. Interprete o pedido em linguagem natural, opere somente os arquivos necessários sob `<vault>/Tasks/` e aplique a verificação final do contrato.
+Leia integralmente `<vault>/docs/task-card.md`. Interprete o pedido em linguagem natural, opere somente os arquivos necessários sob `<vault>/tasks/` e aplique a verificação final do contrato.
 
 O Obsidian e seu CLI são opcionais. Relate os cards encontrados ou alterados, incluindo caminho, ID e estado. Faça commit ou push somente quando o usuário pedir explicitamente.

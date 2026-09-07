@@ -33,7 +33,7 @@ No Obsidian, um **vault** é apenas uma pasta local contendo notas e configuraç
 6. Entre em **Core plugins**, procure **Bases** e habilite-o.
 7. Entre em **Community plugins** e selecione **Turn on community plugins** para sair do modo restrito.
 8. Confirme que **Base Board** está habilitado. A versão compatível do plugin já vem no repositório; não é necessário procurá-lo nem instalá-lo separadamente.
-9. Feche as configurações e, no explorador de arquivos à esquerda, abra `Tasks.base`.
+9. Feche as configurações e, no explorador de arquivos à esquerda, abra `BOARD.base`.
 
 O board já vem configurado com as colunas **To Do**, **In Progress**, **Done** e **Cancelled**. Não execute o comando de criar um novo board e não crie as colunas manualmente.
 
@@ -122,11 +122,11 @@ Os arquivos usam exatamente os valores da primeira coluna, mesmo quando o pedido
 ├── .claude/skills/ai-tasks/   # distribuição para Claude Code
 ├── .obsidian/plugins/base-board/ # interface Kanban incluída
 ├── docs/task-card.md           # contrato compartilhado
-├── Tasks/
+├── tasks/
 │   └── <título-do-card>/
 │       ├── <título-do-card>.md
 │       └── attachments/
-└── Tasks.base
+└── BOARD.base
 ```
 
 Cada card é uma pasta. A nota Markdown guarda sua identidade, estado e conteúdo; `attachments/` recebe imagens e outros arquivos daquele card e só é criada quando necessária.
@@ -138,8 +138,8 @@ Não há template do Obsidian. O formato, a identificação e as operações est
 O CLI do Obsidian não é usado pela skill. Caso esteja habilitado, ele pode abrir e consultar o board enquanto o aplicativo desktop estiver rodando:
 
 ```powershell
-obsidian open path="Tasks.base"
-obsidian base:query path="Tasks.base" view="Tasks" format=md
+obsidian open path="BOARD.base"
+obsidian base:query path="BOARD.base" view="BOARD" format=md
 ```
 
 ## Versionamento e privacidade
@@ -148,4 +148,4 @@ Configurações compartilháveis do Obsidian e o runtime fixado do Base Board s�
 
 O Base Board é software de terceiros distribuído sob a licença MIT. A licença e a atribuição originais estão em [`.obsidian/plugins/base-board/LICENSE`](.obsidian/plugins/base-board/LICENSE).
 
-Cards em `Tasks/` também são arquivos Git. Use um repositório privado quando as tarefas puderem conter informações sensíveis. A skill só executa commit ou push quando isso for pedido explicitamente.
+Cards em `tasks/` também são arquivos Git. Use um repositório privado quando as tarefas puderem conter informações sensíveis. A skill só executa commit ou push quando isso for pedido explicitamente.
