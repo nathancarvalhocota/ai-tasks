@@ -14,9 +14,20 @@ _Exemplos da interface fornecida pelo plugin [Base Board](https://community.obsi
 
 ### 1. Clone o repositório
 
-O mesmo comando funciona no PowerShell, Terminal do macOS e shells Linux:
+Coloque o clone em um diretório chamado `ai-tasks`, diretamente dentro da pasta cujos projetos ele deve atender.
+
+No PowerShell:
+
+```powershell
+Set-Location C:\dev\trabalho
+git clone https://github.com/nathancarvalhocota/ai-tasks.git ai-tasks
+Set-Location .\ai-tasks
+```
+
+Em macOS ou Linux:
 
 ```shell
+cd ~/work
 git clone https://github.com/nathancarvalhocota/ai-tasks.git
 cd ai-tasks
 ```
@@ -71,7 +82,7 @@ Reinicie o agente depois da instalação. A skill é acionada somente quando voc
 
 ### 4. Faça a primeira chamada
 
-Inicie o agente na raiz deste repositório e peça uma operação:
+Inicie o agente no vault ou em qualquer projeto atendido por ele e peça uma operação:
 
 ```text
 # Codex
@@ -81,9 +92,18 @@ $ai-tasks crie uma tarefa para revisar o planejamento semanal
 /ai-tasks crie uma tarefa para revisar o planejamento semanal
 ```
 
-Na primeira execução, a skill reconhece o vault atual e registra seu caminho em `~/.ai-tasks/config.json`. Esse arquivo é local e não faz parte do repositório. Depois disso, `ai-tasks` pode ser chamada enquanto o agente trabalha em qualquer outra pasta.
+A skill encontra o vault pela posição dos diretórios. Considere esta estrutura:
 
-Se o vault for movido, invoque a skill a partir da nova raiz para atualizar a configuração.
+```text
+C:\dev\trabalho\
+├── ai-tasks\
+├── projeto-a\
+└── projeto-b\
+```
+
+Uma chamada feita em `trabalho`, `projeto-a` ou qualquer descendente usa `trabalho\ai-tasks`. Para manter áreas separadas, repita o clone em outros escopos, como `C:\dev\estudos\ai-tasks`.
+
+A descoberta verifica somente o filho direto `ai-tasks` da pasta atual e de seus ancestrais. Ela não pesquisa recursivamente: uma chamada em `C:\dev` não seleciona `trabalho\ai-tasks` nem `estudos\ai-tasks`. Quando nenhum vault corresponder, o agente pede um caminho exato sem alterar arquivos.
 
 ## Usar a skill
 
@@ -100,6 +120,18 @@ Após o setup, descreva a operação em linguagem natural:
 Não é necessário memorizar o nome exato de uma tarefa. A skill pesquisa ID, título, tags e conteúdo; quando mais de um card corresponder ao pedido, ela apresenta as opções antes de alterar qualquer um deles.
 
 O Obsidian pode permanecer fechado. A skill lê e grava os arquivos diretamente; ao abrir o vault, o board reflete as alterações.
+
+## Atualizar um vault
+
+Peça a atualização pela mesma skill a partir de qualquer projeto atendido pelo vault:
+
+```text
+/ai-tasks atualize este vault
+```
+
+Antes de integrar mudanças públicas, a skill verifica o estado do Git e interrompe se alterações locais ainda precisarem ser commitadas ou guardadas. Atualizações preservam `tasks/`, usam merge sem reescrever o histórico local e abortam automaticamente quando houver conflito. O procedimento completo está em [`docs/update.md`](docs/update.md).
+
+Depois de uma atualização que altere a própria skill, reinicie o agente conforme solicitado para carregar a nova versão.
 
 ## Board
 
@@ -121,7 +153,9 @@ Os arquivos usam exatamente os valores da primeira coluna, mesmo quando o pedido
 ├── .agents/skills/ai-tasks/   # distribuição para Codex
 ├── .claude/skills/ai-tasks/   # distribuição para Claude Code
 ├── .obsidian/plugins/base-board/ # interface Kanban incluída
-├── docs/task-card.md           # contrato compartilhado
+├── docs/
+│   ├── task-card.md            # contrato dos cards
+│   └── update.md               # atualização segura do vault
 ├── tasks/
 │   └── <título-do-card>/
 │       ├── <título-do-card>.md
