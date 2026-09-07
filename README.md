@@ -41,8 +41,8 @@ No Obsidian, um **vault** é apenas uma pasta local contendo notas e configuraç
 3. Escolha a pasta `ai-tasks` que acabou de clonar.
 4. Se o Obsidian pedir confirmação para confiar no conteúdo do vault, revise o repositório e confirme para continuar.
 5. Abra **Settings** pelo ícone de engrenagem no canto inferior esquerdo.
-6. Entre em **Core plugins**, procure **Bases** e habilite-o.
-7. Entre em **Community plugins** e selecione **Turn on community plugins** para sair do modo restrito.
+6. Entre em **Core plugins / Plugins nativos**, procure **Bases** e habilite-o.
+7. Entre em **Community plugins / Plugins não oficiais** e selecione **Turn on community plugins** para sair do modo restrito.
 8. Confirme que **Base Board** está habilitado. A versão compatível do plugin já vem no repositório; não é necessário procurá-lo nem instalá-lo separadamente.
 9. Feche as configurações e, no explorador de arquivos à esquerda, abra `BOARD.base`.
 
@@ -114,12 +114,18 @@ Após o setup, descreva a operação em linguagem natural:
 /ai-tasks liste tarefas relacionadas a documentação
 /ai-tasks mova a tarefa de hospedagem para Fazendo
 /ai-tasks adicione este documento à tarefa de hospedagem
-/ai-tasks conclua a tarefa depois de validar os critérios de aceitação
+/ai-tasks conclua a tarefa de hospedagem
 ```
 
 Não é necessário memorizar o nome exato de uma tarefa. A skill pesquisa ID, título, tags e conteúdo; quando mais de um card corresponder ao pedido, ela apresenta as opções antes de alterar qualquer um deles.
 
 O Obsidian pode permanecer fechado. A skill lê e grava os arquivos diretamente; ao abrir o vault, o board reflete as alterações.
+
+## Sugestão de uso
+
+Trate o card como um resumo da tarefa, não como o lugar onde toda a documentação precisa viver. Mantenha em `Objetivo` e `Contexto` apenas as informações básicas para identificar e entender o trabalho, e use `Notas` para decisões, referências e acompanhamentos curtos.
+
+Conteúdo mais extenso deve ficar na pasta `attachments/` do próprio card e ser referenciado em `Anexos`. Uma spec, por exemplo, pode ser salva como `attachments/spec.md`; imagens, evidências, planos e outros documentos seguem o mesmo princípio. Assim, o board continua fácil de ler enquanto cada tarefa preserva todo o contexto relevante ao lado dela.
 
 ## Atualizar um vault
 

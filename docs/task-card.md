@@ -48,30 +48,22 @@ tags: []
 
 ## Objetivo
 
-<resultado que a tarefa deve produzir>
+<descrição breve da tarefa>
 
 ## Contexto
 
-<informações necessárias para executar a tarefa>
-
-## Critérios de aceitação
-
-- [ ] <resultado observável>
-
-## Resultado
-
-<preencher ao concluir ou cancelar>
+<informações essenciais para entender a tarefa>
 
 ## Notas
 
-<decisões, descobertas e acompanhamento>
+<decisões, referências e acompanhamento conciso>
 
 ## Anexos
 
 <links para arquivos em attachments/>
 ```
 
-`id`, `status` e `tags` são propriedades obrigatórias. Mantenha `tags` como lista YAML, preserve propriedades adicionais existentes e nunca altere o `id` de um card. Preencha as seções com fatos disponíveis e critérios verificáveis; deixe uma seção vazia quando não houver informação real.
+`id`, `status` e `tags` são propriedades obrigatórias. Mantenha `tags` como lista YAML, preserve propriedades adicionais existentes e nunca altere o `id` de um card. Mantenha o card conciso: registre apenas o necessário para identificar, entender e acompanhar a tarefa. Use `Notas` para observações curtas e `Anexos` para conteúdo detalhado, como specs, planos, evidências, imagens ou outros documentos. Deixe uma seção vazia quando não houver informação real.
 
 ## Localização de cards existentes
 
@@ -99,8 +91,8 @@ Quando houver mais de um candidato plausível, apresente uma lista curta com ID,
 - Preserve conteúdo e propriedades não relacionados ao pedido.
 - Para mover, altere `status` e preserve `kanban_order`.
 - Ao renomear, renomeie pasta e nota juntas e atualize os links internos afetados.
-- Use `Done` após satisfazer os critérios de aceitação; marque os checkboxes e registre o resultado.
-- Use `Cancelled` com o motivo registrado em `Resultado`.
+- Use `Done` quando o usuário informar que a tarefa foi concluída ou pedir explicitamente essa mudança.
+- Use `Cancelled` quando o usuário pedir o cancelamento. Registre o motivo em `Notas` somente quando ele for informado ou solicitado.
 
 ### Anexar
 
@@ -110,4 +102,4 @@ Quando houver mais de um candidato plausível, apresente uma lista curta com ID,
 
 ## Verificação final
 
-Antes de concluir uma operação, confirme que o caminho, o frontmatter, as seções obrigatórias, os links de anexos e o estado resultante obedecem a este contrato. Informe ao usuário o caminho do card e seu estado. Commit e push exigem solicitação explícita.
+Antes de concluir uma operação, confirme que o caminho, o frontmatter, as seções básicas, os links de anexos e o estado final obedecem a este contrato. Informe ao usuário o caminho do card e seu estado. Commit e push exigem solicitação explícita.
