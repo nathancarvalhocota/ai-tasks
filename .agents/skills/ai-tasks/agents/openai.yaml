@@ -1,0 +1,6 @@
+interface:
+  display_name: "AI Tasks"
+  short_description: "Gerencie tarefas em um vault Markdown local"
+  default_prompt: "Use $ai-tasks para criar, localizar ou alterar uma tarefa."
+policy:
+  allow_implicit_invocation: false

@@ -1,0 +1,20 @@
+# Estado local da interface do Obsidian
+.obsidian/workspace.json
+.obsidian/workspace-mobile.json
+.obsidian/cache/
+
+# Apenas o runtime fixado do Base Board é distribuído com o vault.
+# Outros plugins e configurações locais continuam fora do repositório.
+.obsidian/plugins/*
+!.obsidian/plugins/base-board/
+.obsidian/plugins/base-board/*
+!.obsidian/plugins/base-board/main.js
+!.obsidian/plugins/base-board/manifest.json
+!.obsidian/plugins/base-board/styles.css
+!.obsidian/plugins/base-board/LICENSE
+
+# Lixeira e arquivos do sistema operacional
+.trash/
+.DS_Store
+Thumbs.db
+desktop.ini
